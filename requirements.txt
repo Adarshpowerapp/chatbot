@@ -3,6 +3,6 @@ pandas
 transformers
 gunicorn
 tensorflow
-torch==2.1.0+cu117
-torchvision==0.15.0+cu117
-torchaudio==2.1.0
+torch
+torchvision
+torchaudio
