@@ -2,4 +2,3 @@
 pandas
 transformers
 gunicorn
-pytorch
