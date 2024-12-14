@@ -106,7 +106,3 @@ def chat():
         return jsonify({'response': chatbot_response})
     return jsonify({'response': 'Please type a message!'})
 
-
-
-if __name__ == '__main__':
-    app.run(debug=False,host ='0.0.0.0')
