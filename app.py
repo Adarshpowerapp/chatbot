@@ -109,5 +109,5 @@ def chat():
 
 
 if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))  # Default to 5000 if no port is provided
+    port = int(os.getenv('PORT', 4000))
     app.run(host='0.0.0.0', port=port)
