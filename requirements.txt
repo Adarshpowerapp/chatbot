@@ -1,6 +1,4 @@
 ﻿Flask
 pandas
 transformers
-torch
-tensorflow-cpu
 gunicorn
