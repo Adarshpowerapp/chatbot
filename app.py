@@ -1,6 +1,7 @@
-from flask import Flask, request, jsonify, render_template, redirect, flash, url_for, session
+from flask import Flask, request, jsonify, render_template, redirect, flash, session
 import pandas as pd
 from transformers import pipeline
+import os
 
 # Load the dataset
 file_path = 'medquad.csv'  # Replace with the correct path if necessary
@@ -12,6 +13,9 @@ except FileNotFoundError:
 
 # Clean the data (e.g., drop rows with missing answers)
 data = data.dropna(subset=['answer'])
+
+# Disable GPU for TensorFlow/transformers if necessary
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 # Load a language model from Hugging Face for generating responses
 try:
@@ -106,8 +110,8 @@ def chat():
         return jsonify({'response': chatbot_response})
     return jsonify({'response': 'Please type a message!'})
 
-
-
+# Entry point for the application
 if __name__ == '__main__':
-    port = int(os.getenv('PORT', 4000))
+    # Bind to the correct port
+    port = int(os.getenv('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
